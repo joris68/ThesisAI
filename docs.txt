@@ -1,0 +1,37 @@
+Microservices:
+
+Shared resources Among different Microservices:
+- Api Gateway
+- S3 Storage
+- Secret Manager
+
+Register:
+
+Note: we will integrate the API Gateway here
+Resource: /register
+Method: POST (201 Success, 403 otherwise)
+
+Writes to mongoDB User database, validation test, hashing for userinput will be done in the
+Frontend
+Language : JavaScript
+
+
+- for both Register and Login would client-side caching possible
+
+Login:
+
+Resource: /login
+Method: Post (201 success, 403 otherwise)
+email validation in the Frontend
+
+
+mongoDB:
+ThesisAI
+
+gcWjlfVpleH1m5TJ
+
+
+
+
+
+
