@@ -3,7 +3,7 @@ Microservices:
 Shared resources Among different Microservices:
 - Api Gateway
 - S3 Storage
-- Secret Manager
+- Secret Manager (eher nicht, weil  hat Grundkosten)
 
 Register:
 
@@ -25,10 +25,8 @@ Method: Post (201 success, 403 otherwise)
 email validation in the Frontend
 
 
-mongoDB:
-ThesisAI
+Corporate Identity:
 
-gcWjlfVpleH1m5TJ
 
 
 
