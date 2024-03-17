@@ -31,7 +31,7 @@ A lot of Engineering Students struggle with writing their thesis at the end of t
 writing in general. ThesisAI is a tool that helps students train their AI (finetune ChatGPT) model based onn their provided Background papers to help them with their Thesis.
 ThesisAI will extract the text fro the academic papers provided and transform it into a JSONlines document needed to finetune ChatGPT.
 ThesisAI will provide detailed instruction how to prevent plagiatism in academmic writing.
-ThesisAI wants to leverage AI 
+ThesisAI wants to leverage AI and incorporate in into the process of writing a THesis so people can make something AWESOME.
 ThesisAI is NOT a tool automate the Thesis.
 ThesisAI is a tool to potentially make life easier especially for Engineering students.
 We will provide detailed explanation and workflow in the ThesisAI Workflow and White Paper.
