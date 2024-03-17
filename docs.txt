@@ -16,8 +16,6 @@ Frontend
 Language : JavaScript
 
 
-- for both Register and Login would client-side caching possible
-
 Login:
 
 Resource: /login
@@ -25,9 +23,25 @@ Method: Post (201 success, 403 otherwise)
 email validation in the Frontend
 
 
+
+
+Objective to overcome:
+
+A lot of Engineering Students struggle with writing their thesis at the end of their degree as they did not practice academic writing nor
+writing in general. ThesisAI is a tool that helps students train their AI (finetune ChatGPT) model based onn their provided Background papers to help them with their Thesis.
+ThesisAI will extract the text fro the academic papers provided and transform it into a JSONlines document needed to finetune ChatGPT.
+ThesisAI will provide detailed instruction how to prevent plagiatism in academmic writing.
+ThesisAI wants to leverage AI 
+ThesisAI is NOT a tool automate the Thesis.
+ThesisAI is a tool to potentially make life easier especially for Engineering students.
+We will provide detailed explanation and workflow in the ThesisAI Workflow and White Paper.
+
+
+
 Corporate Identity:
 
-
+ThesisAI is a tool to excel at your acedemic Tasks. Is is not a tool to be lazy. It is a tool that lets you focus on your engineering project rather than focusing ont writing.
+You are an engineer. Not a writer. ThesisAI promotes thinking outside the box and trying new things.
 
 
 
