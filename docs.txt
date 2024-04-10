@@ -25,10 +25,7 @@ Method: Post (201 success, 403 otherwise)
 email validation in the Frontend
 
 
-mongoDB:
-ThesisAI
 
-gcWjlfVpleH1m5TJ
 
 
 
