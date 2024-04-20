@@ -1,6 +1,6 @@
 
 
-# Define a GET method for register Request
+# Define a POST method for register Request
 resource "aws_api_gateway_method" "RegisterPost" {
   rest_api_id   = var.api_gateway_id
   resource_id   = aws_api_gateway_resource.registerResource.id
@@ -33,15 +33,15 @@ resource "aws_api_gateway_deployment" "deploymentStage" {
 
 }
 
-#Lambda integration for the API Gateway
+#Lambda integration for the API Gateway, integrates the lambda 
 resource "aws_api_gateway_integration" "RegisterLambdaIntegration" {
   rest_api_id = var.api_gateway_id
   resource_id = aws_api_gateway_resource.registerResource.id
   http_method = aws_api_gateway_method.RegisterPost.http_method
 
-  integration_http_method = "POST" # The backend HTTP method. For Lambda, use "POST"
+  integration_http_method = "POST" 
   type                    = "AWS_PROXY"
-  uri                     = aws_lambda_function.my_lambda_function.invoke_arn
+  uri                     = aws_lambda_function.RegisterLambda.invoke_arn
 }
 
 #lambda execution role for register function
@@ -72,12 +72,12 @@ resource "aws_iam_policy_attachment" "lambda_logs" {
 
 resource "aws_lambda_function" "RegisterLambda" {
   function_name = "RegisterLambda"
-  handler       = "register.handler"
+  handler       = "index.handler"
   role          = aws_iam_role.lambda_exec_role.arn
-  runtime       = "nodejs14.x" 
-  filename      = ""
+  runtime       = "nodejs18.x" 
+  filename      = "IaCMicros/Register/Lambda/register.zip"
 
-  source_code_hash = filebase64sha256("path/to/your/lambda_function_package.zip")
+  source_code_hash = filebase64sha256("IaCMicros/Register/Lambda/register.zip")
 
   environment {
     variables = {
@@ -85,3 +85,23 @@ resource "aws_lambda_function" "RegisterLambda" {
     }
   }
 }
+
+resource "aws_lambda_permission" "api_gateway_invoke_lambda" {
+  statement_id  = "AllowExecutionFromAPIGateway"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.RegisterLambda.function_name
+  principal     = "apigateway.amazonaws.com"
+
+  source_arn = "${var.api_gateway_execution_arn}/register/POST"
+}
+
+# a log group for my 
+resource "aws_cloudwatch_log_group" "lambda_log_group" {
+  name              = "/aws/lambda/RegisterLambda"
+  retention_in_days = 14
+
+  tags = {
+    Name = "LambdaLogGroupForRegisterLambda"
+  }
+}
+

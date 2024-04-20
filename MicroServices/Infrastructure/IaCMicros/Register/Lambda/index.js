@@ -1,6 +1,5 @@
-const AWS = require('aws-sdk');
-const { MongoClient } = require('mongodb');
-
+const mongodb = require("mongodb");
+const MongoClient = mongodb.MongoClient;
 
 
 async function connectToMongoDB(){
@@ -21,7 +20,6 @@ async function connectToMongoDB(){
          return client;
  
      } catch (e) {
-         console.error(e);
          throw e;
      }
 }
@@ -35,16 +33,13 @@ async function registerUserToDB(client, document) {
     }
 }
 
-async function extractUserData(event){
- // extract user data to be added
- return "to be added"
-}
 
 exports.handler = async (event) => {
+    console.log("starting")
     let client;
     try {
         client = await connectToMongoDB();
-        const userData = await extractUserData(event); 
+        const userData = JSON.parse(event.body);
         await registerUserToDB(client, userData);
 
         return {
